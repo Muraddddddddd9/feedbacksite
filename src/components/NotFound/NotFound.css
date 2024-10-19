@@ -1,0 +1,18 @@
+.container404Page {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+}
+
+.container404Page p{
+    display: flex;
+    font-size: 60px;
+    margin-bottom: 0;
+    margin-top: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}

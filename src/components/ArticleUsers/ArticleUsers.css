@@ -1,0 +1,113 @@
+.news-tape {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.contant-news {
+    border-collapse: collapse;
+    margin-top: 40px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.container-news-full {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 700px;
+    height: auto;
+    margin: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+    background-color: #1d1836;
+    border: 1px solid #000;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.container-data-author {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.container-data-author svg {
+    width: 30px;
+    height: 30px;
+}
+
+.star-con {
+    display: flex;
+    text-align: center;
+}
+
+.author:hover {
+    color: #34d399;
+    cursor: pointer;
+}
+
+.text {
+    margin-top: 20px;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.continuation {
+    margin-top: 20px;
+    text-align: end;
+}
+
+.continuation:hover {
+    color: #34d399;
+    cursor: pointer;
+}
+
+.container-commits {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-commits-input {
+    display: flex;
+}
+
+.container-commits input {
+    width: 90%;
+}
+
+.comment-button {
+    padding: 10px 20px;
+    width: 10%;
+    border: none;
+    background-color: #34d399;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.comment-button:hover {
+    background-color: #2bbf85;
+}
+
+.comments-list {
+    margin-top: 10px;
+    background-color: #2d2a47;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.comment-item {
+    padding: 5px;
+    border-bottom: 1px solid #444;
+    color: white;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,59 @@
+.db-article {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.table-db-article {
+    border-collapse: collapse;
+    margin-top: 40px;
+    width: 70%;
+    margin-left: 200px;
+    margin-right: 5%;
+    border: 1px solid #000;
+    border-radius: 8px;
+    overflow: hidden;
+    
+}
+
+.head-db-article {
+    background-color: green;
+    color: #fff;
+    font-weight: bold;
+}
+
+.tr-db-article th {
+    padding: 12px;
+    border: 1px solid #ffffff;
+}
+
+.table-db-article td{
+  padding: 1rem;
+  border-bottom: 2px solid #ffffff;
+  background-color: #1d1836;
+  color: #fff;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+button svg {
+    width: 25px;
+    height: 25px;
+    color: red;
+}
+
+.go-link-article-page:hover {
+    color: #34d399;
+    font-weight: 600;
+    user-select: none;
+    cursor: pointer;
+}
+
+.go-link-user-page-in-article:hover {
+    color: #34d399;
+    user-select: none;
+    cursor: pointer;
+}
