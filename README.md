@@ -1,64 +1,74 @@
-# Safe road traffic
-
-## I use:
-1. <a href="https://vite.dev/guide">Vite + ReactJS</a>  
-2. <a href="https://www.npmjs.com/package/web3">npm Web3</a>
-3. <a href="https://geth.ethereum.org/downloads">Go-Ethereum v1.14.11(installer)</a> 
-4. <a href="https://metamask.io/">MetaMask</a>
-
+# FEEDBACK SITE
 -----------
-## The Frontend. Start command:
-```cmd
-git clone https://github.com/Muraddddddddd9/safe_road_traffic.git
+## PORTS FOR THE PROJECT
+Port for the frontend: ***3000***
+Port for the backend: ***4000*** <br />
+Redact ports for the backend: <br />
+&emsp;1 Step. ***src\components\data.js*** -> **mainLink** -> **http://localhost:YOUR_PORTS** <br />
+&emsp;2 Step. ***src\server.js*** -> **server.listen(...)** -> **server.listen(YOUR_PORTS, ...)**
+## CONNECT TO THE DATABASE
+Open ***src\server.js*** and add your data
+```js
+const conn = db.createConnection({
+    host: "YOUR_HOST",
+    database: "YOUR_DATABASE",
+    user: "YOUR_USER",
+    password: "YOUR_PASSWORD",
+});
 ```
-```npm
-npm i
+## CREATE A TABLE FOR THE DATABASE
+There are only three tables **user**, **comments**, **article**
+### Create **users**
+```sql
+CREATE TABLE `users` (
+    `id` varchar(45) NOT NULL,
+    `name` varchar(45) NOT NULL,
+    `email` varchar(45) NOT NULL,
+    `pass` varchar(45) NOT NULL,
+    `cookieKey` varchar(45) NOT NULL,
+    `status` varchar(45) NOT NULL,
+    `img` longblob,
+    PRIMARY KEY (`id`,`cookieKey`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
 ```
-```npm
-npm run dev
+### Add the main user **Admin**
+```sql
+INSERT INTO users (id, name, email, pass, cookieKey, status, img)
+VALUES ('mlUM2iy', 'Admin', 'Admin', 'Admin', 'dg4WLkq6HmnSBBu783mBWOC7NWQ1cL54JC0FAoxS', 'admin', NULL);
 ```
-
------------
-## The Backend. Start command:
-### Creating a local server:
-1. Create any folder on your desktop
-2. Log in to the created folder
-3. Open CMD and input: <br>
-    3.1 Running the testnet with the default configuration: 
-    ```cmd 
-    geth --datadir "" --dev
-    ```
-    3.2 Uploading the genesis json configuration from the network: 
-    ```cmd 
-    geth --datadir "" --dev dumpgenesis > genesis.json
-    ```
-    3.3 Creating an account 
-    ```cmd 
-    geth --datadir "" account new 
-    ```
-    3.4 Add to genesis.json account as shown in the picture 1<br>
-    ![picture 1](./imgForMd/picture1.png)<br>
-    3.4 Delete the created *geth* folder<br>
-    3.5 Network initialization with its own configuration 
-    ```cmd
-    geth --datadir "" init genesis.json
-    ```
-    3.6 Raising the net
-    ```cmd
-    geth --datadir "" --dev --http --http.api "net,eth,web3" --http.corsdomain "*" --http.port 8545 --networkid 1337
-    ```
-
-### Creating a test server in MetaMask:
-1. Creating a wallet
-2. In the right corner, click on the icon and go to the network selection. <br>
-![picture2](picture2.png) <br>
-3. We enter the necessary data <br>
-    3.1 Network name: any name <br>
-    3.2 URL-address: http://localhost:8545 <br>
-    3.3 ID-blockchane: 1337 <br>
-    3.4 Currency symbol: ETH <br>
-    3.5 Save <br>
-4. Go to the wallet selection <br> 
-5. Add an invoice <br>
-6. Import the invoice and select the type of JSON-file <br>
-7. Import keystore wallets inside your created folder <br>
+### Create **comments**
+```sql
+CREATE TABLE `comments` (
+    `id` varchar(45) NOT NULL,
+    `idusers` varchar(45) NOT NULL,
+    `nameusers` varchar(45) NOT NULL,
+    `idpost` varchar(45) NOT NULL,
+    `idusersauthor` varchar(45) NOT NULL,
+    `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `date` varchar(45) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+```
+### Create **article**
+```sql
+CREATE TABLE `article` (
+    `id` varchar(45) CHARACTER SET latin1 NOT NULL,
+    `title` varchar(45) NOT NULL,
+    `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `star` int(11) NOT NULL,
+    `author` varchar(45) CHARACTER SET latin1 NOT NULL,
+    `authorId` varchar(45) CHARACTER SET latin1 NOT NULL,
+    `date` varchar(45) CHARACTER SET latin1 NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+```
+## START PROJECT 
+Start the FRONTEND:
+```
+npm start
+```
+Start the BACKEND:
+```
+cd src
+node server
+```
